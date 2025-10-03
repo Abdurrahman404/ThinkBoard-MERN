@@ -1,6 +1,7 @@
 import { PenSquareIcon, Trash2Icon } from "lucide-react";
 import { Link } from "react-router-dom"; // use react-router-dom instead of react-router
 import api from "../lib/axios";
+import { formatDate } from "../lib/utils";
  
 import toast from "react-hot-toast";
 import { set } from "mongoose";
@@ -36,7 +37,7 @@ const NoteCard = ({ note, onDelete }) => {
         <p className="text-base-content/70 line-clamp-3">{note.content}</p>
         <div className="card-actions justify-between items-center mt-4">
           <span className="text-sm text-base-content/60">
-            
+           {formatDate(new Date(note.createdAt))}
           </span>
           <div className="flex items-center gap-1">
             <PenSquareIcon className="size-4" />
